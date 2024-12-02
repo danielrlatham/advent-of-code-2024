@@ -1,9 +1,25 @@
 package one
 
 import (
-  "fmt"
+	"fmt"
+	"io"
+	"log"
+	"os"
 )
 
 func Solution() {
-	fmt.Println("Hello")
+	file, err := os.Open("pkg/day/one/input.txt")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer func() {
+		if err = file.Close(); err != nil {
+			log.Fatal(err)
+		}
+	}()
+
+	b, err := io.ReadAll(file)
+  text := string(b)
+	fmt.Print(text)
 }
