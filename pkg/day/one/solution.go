@@ -66,31 +66,31 @@ func Solution() {
 		total_distance += abs(val)
 	}
 
-  // part 1 answer: 1970720
-  fmt.Println(total_distance)
+	// part 1 answer: 1970720
+	fmt.Println(total_distance)
 
-  score_map := make(map[int]int)
+	score_map := make(map[int]int)
 
-  for _, lvalue := range left_slice {
-    total := 0
-    for _, rvalue := range right_slice {
-      if lvalue == rvalue {
-        total += lvalue
-      }
-    }
-    if _, ok := score_map[lvalue]; ok {
-      score_map[lvalue] = score_map[lvalue] + total
-    } else {
-      score_map[lvalue] = total
-    }
-  }
+	for _, lvalue := range left_slice {
+		total := 0
+		for _, rvalue := range right_slice {
+			if lvalue == rvalue {
+				total += lvalue
+			}
+		}
+		if _, ok := score_map[lvalue]; ok {
+			score_map[lvalue] = score_map[lvalue] + total
+		} else {
+			score_map[lvalue] = total
+		}
+	}
 
-  total_score := 0
-  for _, value := range score_map {
-    total_score += value
-  }
-  // part 2 answer: 17191599
-  fmt.Println(total_score)
+	total_score := 0
+	for _, value := range score_map {
+		total_score += value
+	}
+	// part 2 answer: 17191599
+	fmt.Println(total_score)
 }
 
 func abs(x int) int {
